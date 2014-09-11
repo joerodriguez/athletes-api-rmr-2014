@@ -68,6 +68,25 @@ resource 'Athlete' do
       expect(response_json['name']).to eq 'Raphael MAJKA'
     end
   end
+
+  delete "/athletes/:id.json" do
+    let(:existing_athlete) do
+      AthleteModel.create!({
+        name: 'Rafal MAJKA',
+        weight: 59,
+        avatar: 'http://www.letour.fr/PHOTOS/TDF/2014/RIDERS/34.jpg'
+      })
+    end
+
+    let(:id) { existing_athlete.id }
+
+    example 'Deleting an existing athlete' do
+      do_request
+
+      expect(status).to eq 200
+    end
+
+  end
 end
 
 def response_json

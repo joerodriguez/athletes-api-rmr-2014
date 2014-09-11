@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  resources :athletes, only: [:index, :create, :update, :delete]
+  resources :athletes, only: [:index, :create, :update, :destroy]
 end

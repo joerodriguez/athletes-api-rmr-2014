@@ -9,9 +9,14 @@ class AthletesService
   end
 
   def update(id, attrs)
-    entity_to_create = Entity.new(attrs)
-    entity_to_create.id = id
-    athletes_repository.save(entity_to_create)
+    entity_to_update = Entity.new(attrs)
+    entity_to_update.id = id
+    athletes_repository.save(entity_to_update)
+  end
+
+  def delete(id)
+    entity_to_delete = Entity.new(id: id)
+    athletes_repository.destroy(entity_to_delete)
   end
 
   private

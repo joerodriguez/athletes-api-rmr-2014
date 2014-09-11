@@ -34,7 +34,7 @@ RSpec.describe AthletesRepository do
 
     context 'with a new record' do
       it 'returns a successful store result with valid data' do
-        result = subject.save({ name: 'Joseph' })
+        result = subject.save(Entity.new({ name: 'Joseph' }))
 
         expect(result.success?).to eq true
         expect(result.entity.name).to eq 'Joseph'
@@ -42,7 +42,7 @@ RSpec.describe AthletesRepository do
       end
 
       it 'returns an unsuccessful store result with invalid data' do
-        result = subject.save({ name: '' })
+        result = subject.save(Entity.new({ name: '' }))
 
         expect(result.success?).to eq false
         expect(result.errors[0][:field]).to eq 'name'
@@ -52,13 +52,13 @@ RSpec.describe AthletesRepository do
 
     context 'with an existing record' do
       it 'returns a successful store result with valid data' do
-        result = subject.save({ id: @existing_entity.id, name: 'Joseph Rodriguez' })
+        result = subject.save(Entity.new({ id: @existing_entity.id, name: 'Joseph Rodriguez' }))
 
         expect(result.success?).to eq true
       end
 
       it 'returns an unsuccessful store result with invalid data' do
-        result = subject.save({ id: @existing_entity.id, name: '' })
+        result = subject.save(Entity.new({ id: @existing_entity.id, name: '' }))
 
         expect(result.success?).to eq false
         expect(result.errors[0][:field]).to eq 'name'
@@ -67,9 +67,36 @@ RSpec.describe AthletesRepository do
 
       context 'when the record to be saved does not exist' do
         it 'returns a record not found error' do
-          result = subject.save({id: 42})
+          result = subject.save(Entity.new({id: 42}))
           expect(result.success?).to eq false
         end
+      end
+    end
+  end
+
+  describe '#destroy' do
+    before do
+      entity = Entity.new({
+        name: 'Joseph',
+        weight: 175,
+        avatar: 'what'
+      })
+
+      @existing_entity = subject.save(entity).entity
+    end
+
+    it 'returns a successful store result and destroys the record' do
+      result = subject.destroy(Entity.new(id: @existing_entity.id))
+
+      expect(result.success?).to eq true
+    end
+
+    context 'when the record to be saved does not exist' do
+      it 'returns a record not found error' do
+        result = subject.destroy(Entity.new(id: 42))
+
+        expect(result.success?).to eq false
+        expect(result.errors[0][:message]).to eq "record not found"
       end
     end
   end

@@ -70,4 +70,28 @@ RSpec.describe AthletesController, :type => :controller do
       end
     end
   end
+
+  describe 'DELETE destroy' do
+    context 'with a successful store result' do
+      it 'results in success' do
+        persistence_transaction = instance_double("StoreResult", success?: true)
+        expect(athletes_service).to receive(:delete).with('4').and_return(persistence_transaction)
+
+        delete :destroy, id: 4
+
+        expect(response.status).to eq 200
+      end
+    end
+
+    context 'with an unsuccessful store result' do
+      it 'results in unprocessable entity' do
+        persistence_transaction = instance_double("StoreResult", success?: false, errors: [{message: "not found"}])
+        expect(athletes_service).to receive(:delete).with('4').and_return(persistence_transaction)
+
+        delete :destroy, id: 4
+
+        expect(response.status).to eq 400
+      end
+    end
+  end
 end

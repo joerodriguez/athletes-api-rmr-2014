@@ -26,6 +26,16 @@ class AthletesController < ApplicationController
     end
   end
 
+  def destroy
+    result = athletes_service.delete(params[:id])
+
+    if result.success?
+      render nothing: true, status: :ok
+    else
+      render json: { errors: result.errors }, status: :bad_request
+    end
+  end
+
   private
 
   def athletes_service

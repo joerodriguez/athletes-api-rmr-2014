@@ -34,4 +34,13 @@ RSpec.describe AthletesService do
       expect(subject.update(1, {})).to eq result
     end
   end
+
+  describe '#update' do
+    it 'asks the athletes repository to delete the athlete' do
+      result = instance_double('StoreResult')
+      expect(athletes_repository).to receive(:destroy).with(-> (entity) { expect(entity.id).to eq 1 }).and_return(result)
+
+      expect(subject.delete(1)).to eq result
+    end
+  end
 end
