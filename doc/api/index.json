@@ -1,0 +1,14 @@
+{
+  "resources": [
+    {
+      "name": "Athlete",
+      "examples": [
+        {
+          "description": "Listing all athletes",
+          "link": "athlete/listing_all_athletes.json",
+          "groups": "all"
+        }
+      ]
+    }
+  ]
+}
