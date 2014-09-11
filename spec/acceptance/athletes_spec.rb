@@ -3,11 +3,11 @@ require 'rspec_api_documentation/dsl'
 
 resource 'Athlete' do
   get '/athletes.json' do
-    example 'Listing all athletes' do
+    example 'List' do
       AthleteModel.create!({
-        name: 'Brendan Benson',
-        weight: 160,
-        avatar: 'http://blogs.tennessean.com/tunein/files/2010/11/Brendan-Benson.gif'
+        name: 'Vincenzo NIBALI',
+        weight: 65,
+        avatar: 'http://www.letour.fr/PHOTOS/TDF/2014/RIDERS/41.jpg'
       })
 
       do_request
@@ -15,29 +15,57 @@ resource 'Athlete' do
       expect(status).to eq 200
 
       expect(response_json.size).to eq 1
-      expect(response_json[0]['name']).to eq 'Brendan Benson'
-      expect(response_json[0]['weight']).to eq 160
-      expect(response_json[0]['avatar']).to eq 'http://blogs.tennessean.com/tunein/files/2010/11/Brendan-Benson.gif'
+      expect(response_json[0]['name']).to eq 'Vincenzo NIBALI'
+      expect(response_json[0]['weight']).to eq 65
+      expect(response_json[0]['avatar']).to eq 'http://www.letour.fr/PHOTOS/TDF/2014/RIDERS/41.jpg'
     end
   end
 
   post '/athletes.json' do
-    example 'with complete data' do
-      do_request athlete: { weight: 155, name: 'John Jackson', avatar: 'http://what.jpg' }
+    example 'Create with valid data' do
+      do_request athlete: { weight: 63, name: 'Peter SAGAN', avatar: 'http://www.letour.fr/PHOTOS/TDF/2014/RIDERS/51.jpg' }
 
       expect(status).to eq 201
 
-      expect(response_json['name']).to eq 'John Jackson'
-      expect(response_json['weight']).to eq 155
-      expect(response_json['avatar']).to eq 'http://what.jpg'
+      expect(response_json['name']).to eq 'Peter SAGAN'
+      expect(response_json['weight']).to eq 63
+      expect(response_json['avatar']).to eq 'http://www.letour.fr/PHOTOS/TDF/2014/RIDERS/51.jpg'
     end
 
-    example 'with incomplete data' do
+    example 'Create with invalid data' do
       do_request athlete: { weight: 155, name: 'a' }
 
-      expect(status).to eq 400
+      expect(status).to eq 422
 
       expect(response_json).to eq({ 'errors' => [{ 'field' => 'name', 'message' => 'is too short (minimum is 3 characters)' }]})
+    end
+  end
+
+  put "/athletes/:id.json" do
+    let(:existing_athlete) do
+      AthleteModel.create!({
+        name: 'Rafal MAJKA',
+        weight: 59,
+        avatar: 'http://www.letour.fr/PHOTOS/TDF/2014/RIDERS/34.jpg'
+      })
+    end
+
+    let(:id) { existing_athlete.id }
+
+    example 'Update with invalid data' do
+      do_request athlete: { name: 'b' }
+
+      expect(status).to eq 422
+
+      expect(response_json).to eq({ 'errors' => [{ 'field' => 'name', 'message' => 'is too short (minimum is 3 characters)' }]})
+    end
+
+    example 'Update with valid data' do
+      do_request athlete: { name: 'Raphael MAJKA' }
+
+      expect(status).to eq 202
+
+      expect(response_json['name']).to eq 'Raphael MAJKA'
     end
   end
 end

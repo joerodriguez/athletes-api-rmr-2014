@@ -4,8 +4,18 @@
       "name": "Athlete",
       "examples": [
         {
-          "description": "Listing all athletes",
-          "link": "athlete/listing_all_athletes.json",
+          "description": "Create with invalid data",
+          "link": "athlete/create_with_invalid_data.json",
+          "groups": "all"
+        },
+        {
+          "description": "Create with valid data",
+          "link": "athlete/create_with_valid_data.json",
+          "groups": "all"
+        },
+        {
+          "description": "List",
+          "link": "athlete/list.json",
           "groups": "all"
         }
       ]

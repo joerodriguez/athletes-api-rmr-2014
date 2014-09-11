@@ -1,0 +1,46 @@
+{
+  "resource": "Athlete",
+  "http_method": "POST",
+  "route": "/athletes.json",
+  "description": "Create with invalid data",
+  "explanation": null,
+  "parameters": [
+
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "POST",
+      "request_path": "/athletes.json",
+      "request_body": "athlete[weight]=155&athlete[name]=a",
+      "request_headers": {
+        "Host": "example.org",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/x-www-form-urlencoded",
+      "response_status": 400,
+      "response_status_text": "Bad Request",
+      "response_body": "{\"errors\":[{\"field\":\"name\",\"message\":\"is too short (minimum is 3 characters)\"}]}",
+      "response_headers": {
+        "X-Frame-Options": "SAMEORIGIN",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Content-Type": "application/json; charset=utf-8",
+        "Cache-Control": "no-cache",
+        "X-Request-Id": "a8806b24-f3e5-49c1-8dc3-4f4bd31d2fd2",
+        "X-Runtime": "0.007065",
+        "Content-Length": "80"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null,
+      "request_headers_text": "Host: example.org\nContent-Type: application/x-www-form-urlencoded\nCookie: ",
+      "request_query_parameters_text": null,
+      "response_headers_text": "X-Frame-Options: SAMEORIGIN\nX-XSS-Protection: 1; mode=block\nX-Content-Type-Options: nosniff\nContent-Type: application/json; charset=utf-8\nCache-Control: no-cache\nX-Request-Id: a8806b24-f3e5-49c1-8dc3-4f4bd31d2fd2\nX-Runtime: 0.007065\nContent-Length: 80"
+    }
+  ]
+}

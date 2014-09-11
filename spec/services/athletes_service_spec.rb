@@ -18,11 +18,20 @@ RSpec.describe AthletesService do
   end
 
   describe '#create' do
-    it 'asks the athletes repository for all athletes' do
+    it 'asks the athletes repository to save an athlete' do
       result = instance_double('StoreResult')
       expect(athletes_repository).to receive(:save).and_return(result)
 
       expect(subject.create({})).to eq result
+    end
+  end
+
+  describe '#update' do
+    it 'sets the id and asks the athletes repository to save an athlete' do
+      result = instance_double('StoreResult')
+      expect(athletes_repository).to receive(:save).with(-> (entity) { expect(entity.id).to eq 1 }).and_return(result)
+
+      expect(subject.update(1, {})).to eq result
     end
   end
 end

@@ -1,0 +1,47 @@
+{
+  "resource": "Athlete",
+  "http_method": "POST",
+  "route": "/athletes.json",
+  "description": "Create with valid data",
+  "explanation": null,
+  "parameters": [
+
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "POST",
+      "request_path": "/athletes.json",
+      "request_body": "athlete[weight]=155&athlete[name]=John+Jackson&athlete[avatar]=http%3A%2F%2Fwhat.jpg",
+      "request_headers": {
+        "Host": "example.org",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/x-www-form-urlencoded",
+      "response_status": 201,
+      "response_status_text": "Created",
+      "response_body": "{\"id\":1,\"name\":\"John Jackson\",\"weight\":155,\"avatar\":\"http://what.jpg\"}",
+      "response_headers": {
+        "X-Frame-Options": "SAMEORIGIN",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Content-Type": "application/json; charset=utf-8",
+        "ETag": "\"8b7ca1b78414179df0554f045d06c246\"",
+        "Cache-Control": "max-age=0, private, must-revalidate",
+        "X-Request-Id": "f61cd5d7-e46c-42fd-a1d4-851a468d8de8",
+        "X-Runtime": "0.004151",
+        "Content-Length": "70"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null,
+      "request_headers_text": "Host: example.org\nContent-Type: application/x-www-form-urlencoded\nCookie: ",
+      "request_query_parameters_text": null,
+      "response_headers_text": "X-Frame-Options: SAMEORIGIN\nX-XSS-Protection: 1; mode=block\nX-Content-Type-Options: nosniff\nContent-Type: application/json; charset=utf-8\nETag: \"8b7ca1b78414179df0554f045d06c246\"\nCache-Control: max-age=0, private, must-revalidate\nX-Request-Id: f61cd5d7-e46c-42fd-a1d4-851a468d8de8\nX-Runtime: 0.004151\nContent-Length: 70"
+    }
+  ]
+}

@@ -3,9 +3,14 @@ class AthletesService
     athletes_repository.find_all
   end
 
-
   def create(attrs)
     entity_to_create = Entity.new(attrs)
+    athletes_repository.save(entity_to_create)
+  end
+
+  def update(id, attrs)
+    entity_to_create = Entity.new(attrs)
+    entity_to_create.id = id
     athletes_repository.save(entity_to_create)
   end
 

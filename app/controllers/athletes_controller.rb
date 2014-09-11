@@ -12,7 +12,17 @@ class AthletesController < ApplicationController
     if @transaction.success?
       render json: @transaction.entity, status: :created
     else
-      render json: { errors: @transaction.errors }, status: :bad_request
+      render json: { errors: @transaction.errors }, status: :unprocessable_entity
+    end
+  end
+
+  def update
+    @transaction = athletes_service.update(params[:id], params[:athlete])
+
+    if @transaction.success?
+      render json: @transaction.entity, status: :accepted
+    else
+      render json: { errors: @transaction.errors }, status: :unprocessable_entity
     end
   end
 

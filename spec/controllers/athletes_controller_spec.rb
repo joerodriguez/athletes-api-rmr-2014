@@ -20,12 +20,54 @@ RSpec.describe AthletesController, :type => :controller do
   end
 
   describe "POST create" do
-    it 'asks the athlete service to create a new athlete' do
-      persistence_transaction = instance_double("StoreResult", success?: true, entity: {})
-      athlete_attributes = { name: "Jose Rodrigo" }
-      expect(athletes_service).to receive(:create).with(athlete_attributes).and_return(persistence_transaction)
+    context 'with a successful store result' do
+      it 'results in success' do
+        persistence_transaction = instance_double("StoreResult", success?: true, entity: {})
+        athlete_attributes = { name: "Jose Rodrigo" }
+        expect(athletes_service).to receive(:create).with(athlete_attributes).and_return(persistence_transaction)
 
-      post :create, athlete: athlete_attributes
+        post :create, athlete: athlete_attributes
+
+        expect(response.status).to eq 201
+      end
+    end
+
+    context 'with an unsuccessful store result' do
+      it 'results in unprocessable entity' do
+        persistence_transaction = instance_double("StoreResult", success?: false, errors: [])
+        athlete_attributes = { name: "J" }
+        expect(athletes_service).to receive(:create).with(athlete_attributes).and_return(persistence_transaction)
+
+        post :create, athlete: athlete_attributes
+
+        expect(response.status).to eq 422
+      end
+    end
+  end
+
+  describe 'PUT update' do
+    context 'with a successful store result' do
+      it 'results in success' do
+        persistence_transaction = instance_double("StoreResult", success?: true, entity: {})
+        athlete_attributes = { name: "Jose Rodrigo" }
+        expect(athletes_service).to receive(:update).with('4', athlete_attributes).and_return(persistence_transaction)
+
+        put :update, id: 4, athlete: athlete_attributes
+
+        expect(response.status).to eq 202
+      end
+    end
+
+    context 'with an unsuccessful store result' do
+      it 'results in unprocessable entity' do
+        persistence_transaction = instance_double("StoreResult", success?: false, errors: [])
+        athlete_attributes = { name: "J" }
+        expect(athletes_service).to receive(:update).with('4', athlete_attributes).and_return(persistence_transaction)
+
+        put :update, id: 4, athlete: athlete_attributes
+
+        expect(response.status).to eq 422
+      end
     end
   end
 end
