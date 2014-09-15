@@ -1,0 +1,46 @@
+{
+  "resource": "Activity",
+  "http_method": "PUT",
+  "route": "/activities/:id.json",
+  "description": "Update with valid data",
+  "explanation": null,
+  "parameters": [
+
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "PUT",
+      "request_path": "/activities/1.json",
+      "request_body": "{\"activity\":{\"elevation_gain\":354}}",
+      "request_headers": {
+        "Content-Type": "application/json",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/json",
+      "response_status": 202,
+      "response_status_text": "Accepted",
+      "response_body": "{\"id\":1,\"athlete_id\":1,\"started_at\":\"2001-02-02T21:05:06.000Z\",\"finished_at\":\"2001-02-02T21:05:06.000Z\",\"distance\":56,\"elevation_gain\":354}",
+      "response_headers": {
+        "X-Frame-Options": "SAMEORIGIN",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Content-Type": "application/json; charset=utf-8",
+        "Cache-Control": "no-cache",
+        "X-Request-Id": "e7d6e4a9-aed2-4736-878e-171d8c81036f",
+        "X-Runtime": "0.004749",
+        "Content-Length": "139"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null,
+      "request_headers_text": "Content-Type: application/json\nHost: example.org\nCookie: ",
+      "request_query_parameters_text": null,
+      "response_headers_text": "X-Frame-Options: SAMEORIGIN\nX-XSS-Protection: 1; mode=block\nX-Content-Type-Options: nosniff\nContent-Type: application/json; charset=utf-8\nCache-Control: no-cache\nX-Request-Id: e7d6e4a9-aed2-4736-878e-171d8c81036f\nX-Runtime: 0.004749\nContent-Length: 139"
+    }
+  ]
+}

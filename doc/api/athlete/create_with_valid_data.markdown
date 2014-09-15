@@ -7,8 +7,8 @@
 
 #### Headers
 
-<pre>Host: example.org
-Content-Type: application/x-www-form-urlencoded
+<pre>Content-Type: application/json
+Host: example.org
 Cookie: </pre>
 
 #### Route
@@ -17,7 +17,7 @@ Cookie: </pre>
 
 #### Body
 
-<pre>athlete[weight]=155&athlete[name]=John+Jackson&athlete[avatar]=http%3A%2F%2Fwhat.jpg</pre>
+<pre>{"athlete":{"weight":63,"name":"Peter SAGAN","avatar":"http://www.letour.fr/PHOTOS/TDF/2014/RIDERS/51.jpg"}}</pre>
 
 ### Response
 
@@ -27,11 +27,11 @@ Cookie: </pre>
 X-XSS-Protection: 1; mode=block
 X-Content-Type-Options: nosniff
 Content-Type: application/json; charset=utf-8
-ETag: &quot;8b7ca1b78414179df0554f045d06c246&quot;
+ETag: &quot;c0162bd76b62299402b21ed407ff03ad&quot;
 Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: f61cd5d7-e46c-42fd-a1d4-851a468d8de8
-X-Runtime: 0.004151
-Content-Length: 70</pre>
+X-Request-Id: c7ed49cc-673a-46fa-811f-9f9f063f9053
+X-Runtime: 0.002818
+Content-Length: 103</pre>
 
 #### Status
 
@@ -39,4 +39,4 @@ Content-Length: 70</pre>
 
 #### Body
 
-<pre>{"id":1,"name":"John Jackson","weight":155,"avatar":"http://what.jpg"}</pre>
+<pre>{"id":1,"name":"Peter SAGAN","weight":63,"avatar":"http://www.letour.fr/PHOTOS/TDF/2014/RIDERS/51.jpg"}</pre>

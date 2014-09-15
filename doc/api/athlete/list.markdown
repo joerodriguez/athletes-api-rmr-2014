@@ -7,12 +7,17 @@
 
 #### Headers
 
-<pre>Host: example.org
+<pre>Content-Type: application/json
+Host: example.org
 Cookie: </pre>
 
 #### Route
 
 <pre>GET /athletes.json</pre>
+
+#### Query Parameters
+
+<pre>{}: </pre>
 
 ### Response
 
@@ -22,11 +27,11 @@ Cookie: </pre>
 X-XSS-Protection: 1; mode=block
 X-Content-Type-Options: nosniff
 Content-Type: application/json; charset=utf-8
-ETag: &quot;b2b6756d172e3da931ed70165e912cdc&quot;
+ETag: &quot;4886a8bc07aa0c6a67f1766df7167b28&quot;
 Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: 1e11b5ce-9a1f-4c0a-be31-521149170a66
-X-Runtime: 0.009973
-Content-Length: 126</pre>
+X-Request-Id: 055732d1-a21e-41b9-adbe-b7f4554512d5
+X-Runtime: 0.005540
+Content-Length: 109</pre>
 
 #### Status
 
@@ -34,4 +39,4 @@ Content-Length: 126</pre>
 
 #### Body
 
-<pre>[{"id":1,"name":"Brendan Benson","weight":160,"avatar":"http://blogs.tennessean.com/tunein/files/2010/11/Brendan-Benson.gif"}]</pre>
+<pre>[{"id":1,"name":"Vincenzo NIBALI","weight":65,"avatar":"http://www.letour.fr/PHOTOS/TDF/2014/RIDERS/41.jpg"}]</pre>

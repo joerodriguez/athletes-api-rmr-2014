@@ -1,7 +1,7 @@
 {
-  "resource": "Athlete",
+  "resource": "Activity",
   "http_method": "POST",
-  "route": "/athletes.json",
+  "route": "/activities.json",
   "description": "Create with invalid data",
   "explanation": null,
   "parameters": [
@@ -13,8 +13,8 @@
   "requests": [
     {
       "request_method": "POST",
-      "request_path": "/athletes.json",
-      "request_body": "{\"athlete\":{\"weight\":155,\"name\":\"a\"}}",
+      "request_path": "/activities.json",
+      "request_body": "{\"activity\":{\"elevation_gain\":232}}",
       "request_headers": {
         "Content-Type": "application/json",
         "Host": "example.org",
@@ -25,22 +25,22 @@
       "request_content_type": "application/json",
       "response_status": 422,
       "response_status_text": "Unprocessable Entity",
-      "response_body": "{\"errors\":[{\"field\":\"name\",\"message\":\"is too short (minimum is 3 characters)\"}]}",
+      "response_body": "{\"errors\":[{\"field\":\"athlete\",\"message\":\"can't be blank\"}]}",
       "response_headers": {
         "X-Frame-Options": "SAMEORIGIN",
         "X-XSS-Protection": "1; mode=block",
         "X-Content-Type-Options": "nosniff",
         "Content-Type": "application/json; charset=utf-8",
         "Cache-Control": "no-cache",
-        "X-Request-Id": "d646270f-287e-4e3a-ae23-bb726fc1e131",
-        "X-Runtime": "0.003155",
-        "Content-Length": "80"
+        "X-Request-Id": "8ab3a189-cc5d-4d66-9ca3-c1832bb4b8b7",
+        "X-Runtime": "0.005068",
+        "Content-Length": "59"
       },
       "response_content_type": "application/json; charset=utf-8",
       "curl": null,
       "request_headers_text": "Content-Type: application/json\nHost: example.org\nCookie: ",
       "request_query_parameters_text": null,
-      "response_headers_text": "X-Frame-Options: SAMEORIGIN\nX-XSS-Protection: 1; mode=block\nX-Content-Type-Options: nosniff\nContent-Type: application/json; charset=utf-8\nCache-Control: no-cache\nX-Request-Id: d646270f-287e-4e3a-ae23-bb726fc1e131\nX-Runtime: 0.003155\nContent-Length: 80"
+      "response_headers_text": "X-Frame-Options: SAMEORIGIN\nX-XSS-Protection: 1; mode=block\nX-Content-Type-Options: nosniff\nContent-Type: application/json; charset=utf-8\nCache-Control: no-cache\nX-Request-Id: 8ab3a189-cc5d-4d66-9ca3-c1832bb4b8b7\nX-Runtime: 0.005068\nContent-Length: 59"
     }
   ]
 }

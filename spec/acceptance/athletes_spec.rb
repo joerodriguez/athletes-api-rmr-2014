@@ -2,6 +2,10 @@ require 'rails_helper'
 require 'rspec_api_documentation/dsl'
 
 resource 'Athlete' do
+
+  header "Content-Type", "application/json"
+  let(:raw_post){ params.to_json }
+
   get '/athletes.json' do
     example 'List' do
       AthleteModel.create!({

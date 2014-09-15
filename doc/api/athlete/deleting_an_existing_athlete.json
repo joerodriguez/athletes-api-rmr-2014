@@ -1,0 +1,47 @@
+{
+  "resource": "Athlete",
+  "http_method": "DELETE",
+  "route": "/athletes/:id.json",
+  "description": "Deleting an existing athlete",
+  "explanation": null,
+  "parameters": [
+
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "DELETE",
+      "request_path": "/athletes/1.json",
+      "request_body": "{}",
+      "request_headers": {
+        "Content-Type": "application/json",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": " ",
+      "response_headers": {
+        "X-Frame-Options": "SAMEORIGIN",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Content-Type": "text/plain; charset=utf-8",
+        "ETag": "\"7215ee9c7d9dc229d2921a40e899ec5f\"",
+        "Cache-Control": "max-age=0, private, must-revalidate",
+        "X-Request-Id": "4687bd75-1afb-450c-bbb4-fc5e9b0e9f61",
+        "X-Runtime": "0.011905",
+        "Content-Length": "1"
+      },
+      "response_content_type": "text/plain; charset=utf-8",
+      "curl": null,
+      "request_headers_text": "Content-Type: application/json\nHost: example.org\nCookie: ",
+      "request_query_parameters_text": null,
+      "response_headers_text": "X-Frame-Options: SAMEORIGIN\nX-XSS-Protection: 1; mode=block\nX-Content-Type-Options: nosniff\nContent-Type: text/plain; charset=utf-8\nETag: \"7215ee9c7d9dc229d2921a40e899ec5f\"\nCache-Control: max-age=0, private, must-revalidate\nX-Request-Id: 4687bd75-1afb-450c-bbb4-fc5e9b0e9f61\nX-Runtime: 0.011905\nContent-Length: 1"
+    }
+  ]
+}

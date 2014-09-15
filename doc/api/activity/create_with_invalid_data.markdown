@@ -1,8 +1,8 @@
-# Athlete API
+# Activity API
 
 ## Create with invalid data
 
-### POST /athletes.json
+### POST /activities.json
 ### Request
 
 #### Headers
@@ -13,11 +13,11 @@ Cookie: </pre>
 
 #### Route
 
-<pre>POST /athletes.json</pre>
+<pre>POST /activities.json</pre>
 
 #### Body
 
-<pre>{"athlete":{"weight":155,"name":"a"}}</pre>
+<pre>{"activity":{"elevation_gain":232}}</pre>
 
 ### Response
 
@@ -28,9 +28,9 @@ X-XSS-Protection: 1; mode=block
 X-Content-Type-Options: nosniff
 Content-Type: application/json; charset=utf-8
 Cache-Control: no-cache
-X-Request-Id: d646270f-287e-4e3a-ae23-bb726fc1e131
-X-Runtime: 0.003155
-Content-Length: 80</pre>
+X-Request-Id: 8ab3a189-cc5d-4d66-9ca3-c1832bb4b8b7
+X-Runtime: 0.005068
+Content-Length: 59</pre>
 
 #### Status
 
@@ -38,4 +38,4 @@ Content-Length: 80</pre>
 
 #### Body
 
-<pre>{"errors":[{"field":"name","message":"is too short (minimum is 3 characters)"}]}</pre>
+<pre>{"errors":[{"field":"athlete","message":"can't be blank"}]}</pre>

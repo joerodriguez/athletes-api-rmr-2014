@@ -6,6 +6,7 @@ gem 'rails', '4.1.5'
 gem 'sqlite3'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
+gem 'foreigner'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]

@@ -1,8 +1,8 @@
 # Athlete API
 
-## Create with invalid data
+## Update with invalid data
 
-### POST /athletes.json
+### PUT /athletes/:id.json
 ### Request
 
 #### Headers
@@ -13,11 +13,11 @@ Cookie: </pre>
 
 #### Route
 
-<pre>POST /athletes.json</pre>
+<pre>PUT /athletes/1.json</pre>
 
 #### Body
 
-<pre>{"athlete":{"weight":155,"name":"a"}}</pre>
+<pre>{"athlete":{"name":"b"}}</pre>
 
 ### Response
 
@@ -28,8 +28,8 @@ X-XSS-Protection: 1; mode=block
 X-Content-Type-Options: nosniff
 Content-Type: application/json; charset=utf-8
 Cache-Control: no-cache
-X-Request-Id: d646270f-287e-4e3a-ae23-bb726fc1e131
-X-Runtime: 0.003155
+X-Request-Id: 9f6e119d-6c30-4acb-8114-5cb545a3d101
+X-Runtime: 0.004756
 Content-Length: 80</pre>
 
 #### Status

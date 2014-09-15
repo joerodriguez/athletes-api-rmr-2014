@@ -36,6 +36,8 @@ GEM
     coderay (1.1.0)
     diff-lcs (1.2.5)
     erubis (2.7.0)
+    foreigner (1.6.1)
+      activerecord (>= 3.0.0)
     github-markdown (0.6.6)
     hike (1.2.3)
     i18n (0.6.11)
@@ -125,6 +127,7 @@ PLATFORMS
 
 DEPENDENCIES
   apitome
+  foreigner
   jbuilder (~> 2.0)
   pry
   rails (= 4.1.5)

@@ -1,7 +1,7 @@
 {
-  "resource": "Athlete",
+  "resource": "Activity",
   "http_method": "POST",
-  "route": "/athletes.json",
+  "route": "/activities.json",
   "description": "Create with valid data",
   "explanation": null,
   "parameters": [
@@ -13,8 +13,8 @@
   "requests": [
     {
       "request_method": "POST",
-      "request_path": "/athletes.json",
-      "request_body": "{\"athlete\":{\"weight\":63,\"name\":\"Peter SAGAN\",\"avatar\":\"http://www.letour.fr/PHOTOS/TDF/2014/RIDERS/51.jpg\"}}",
+      "request_path": "/activities.json",
+      "request_body": "{\"activity\":{\"athlete_id\":1,\"started_at\":\"2001-02-03T04:05:06+07:00\",\"finished_at\":\"2001-02-03T04:07:06+07:00\",\"elevation_gain\":232,\"distance\":5}}",
       "request_headers": {
         "Content-Type": "application/json",
         "Host": "example.org",
@@ -25,23 +25,23 @@
       "request_content_type": "application/json",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\"id\":1,\"name\":\"Peter SAGAN\",\"weight\":63,\"avatar\":\"http://www.letour.fr/PHOTOS/TDF/2014/RIDERS/51.jpg\"}",
+      "response_body": "{\"id\":2,\"athlete_id\":1,\"started_at\":\"2001-02-02T21:05:06.000Z\",\"finished_at\":\"2001-02-02T21:07:06.000Z\",\"distance\":5,\"elevation_gain\":232}",
       "response_headers": {
         "X-Frame-Options": "SAMEORIGIN",
         "X-XSS-Protection": "1; mode=block",
         "X-Content-Type-Options": "nosniff",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "\"c0162bd76b62299402b21ed407ff03ad\"",
+        "ETag": "\"0d5ae2fd4a2653187f027c7239e0ef66\"",
         "Cache-Control": "max-age=0, private, must-revalidate",
-        "X-Request-Id": "c7ed49cc-673a-46fa-811f-9f9f063f9053",
-        "X-Runtime": "0.002818",
-        "Content-Length": "103"
+        "X-Request-Id": "fecb864d-9778-4e4b-8c88-51c7eb2aaf62",
+        "X-Runtime": "0.009208",
+        "Content-Length": "138"
       },
       "response_content_type": "application/json; charset=utf-8",
       "curl": null,
       "request_headers_text": "Content-Type: application/json\nHost: example.org\nCookie: ",
       "request_query_parameters_text": null,
-      "response_headers_text": "X-Frame-Options: SAMEORIGIN\nX-XSS-Protection: 1; mode=block\nX-Content-Type-Options: nosniff\nContent-Type: application/json; charset=utf-8\nETag: \"c0162bd76b62299402b21ed407ff03ad\"\nCache-Control: max-age=0, private, must-revalidate\nX-Request-Id: c7ed49cc-673a-46fa-811f-9f9f063f9053\nX-Runtime: 0.002818\nContent-Length: 103"
+      "response_headers_text": "X-Frame-Options: SAMEORIGIN\nX-XSS-Protection: 1; mode=block\nX-Content-Type-Options: nosniff\nContent-Type: application/json; charset=utf-8\nETag: \"0d5ae2fd4a2653187f027c7239e0ef66\"\nCache-Control: max-age=0, private, must-revalidate\nX-Request-Id: fecb864d-9778-4e4b-8c88-51c7eb2aaf62\nX-Runtime: 0.009208\nContent-Length: 138"
     }
   ]
 }

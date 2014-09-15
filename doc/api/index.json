@@ -1,6 +1,41 @@
 {
   "resources": [
     {
+      "name": "Activity",
+      "examples": [
+        {
+          "description": "Create with invalid data",
+          "link": "activity/create_with_invalid_data.json",
+          "groups": "all"
+        },
+        {
+          "description": "Create with valid data",
+          "link": "activity/create_with_valid_data.json",
+          "groups": "all"
+        },
+        {
+          "description": "Deleting an existing activity",
+          "link": "activity/deleting_an_existing_activity.json",
+          "groups": "all"
+        },
+        {
+          "description": "List for specific athlete",
+          "link": "activity/list_for_specific_athlete.json",
+          "groups": "all"
+        },
+        {
+          "description": "Update with invalid data",
+          "link": "activity/update_with_invalid_data.json",
+          "groups": "all"
+        },
+        {
+          "description": "Update with valid data",
+          "link": "activity/update_with_valid_data.json",
+          "groups": "all"
+        }
+      ]
+    },
+    {
       "name": "Athlete",
       "examples": [
         {
@@ -14,8 +49,23 @@
           "groups": "all"
         },
         {
+          "description": "Deleting an existing athlete",
+          "link": "athlete/deleting_an_existing_athlete.json",
+          "groups": "all"
+        },
+        {
           "description": "List",
           "link": "athlete/list.json",
+          "groups": "all"
+        },
+        {
+          "description": "Update with invalid data",
+          "link": "athlete/update_with_invalid_data.json",
+          "groups": "all"
+        },
+        {
+          "description": "Update with valid data",
+          "link": "athlete/update_with_valid_data.json",
           "groups": "all"
         }
       ]
