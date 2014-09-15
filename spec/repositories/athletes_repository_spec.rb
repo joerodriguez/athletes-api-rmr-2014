@@ -86,14 +86,14 @@ RSpec.describe AthletesRepository do
     end
 
     it 'returns a successful store result and destroys the record' do
-      result = subject.destroy(Entity.new(id: @existing_entity.id))
+      result = subject.destroy(@existing_entity.id)
 
       expect(result.success?).to eq true
     end
 
     context 'when the record to be saved does not exist' do
       it 'returns a record not found error' do
-        result = subject.destroy(Entity.new(id: 42))
+        result = subject.destroy(42)
 
         expect(result.success?).to eq false
         expect(result.errors[0][:message]).to eq "record not found"

@@ -15,8 +15,7 @@ class AthletesService
   end
 
   def delete(id)
-    entity_to_delete = Entity.new(id: id)
-    athletes_repository.destroy(entity_to_delete)
+    athletes_repository.destroy(id)
   end
 
   private

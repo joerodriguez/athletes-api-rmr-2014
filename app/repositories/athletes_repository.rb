@@ -21,10 +21,9 @@ class AthletesRepository
     StoreResult.new(make_entity(model), saved, make_errors(model))
   end
 
-  def destroy(entity)
-    entity_id = entity.delete(:id)
-    model = dao.find_by(id: entity_id)
-    return StoreResult.new(entity, false, [{ message: "record not found" }]) unless model
+  def destroy(id)
+    model = dao.find_by(id: id)
+    return StoreResult.new(nil, false, [{ message: "record not found" }]) unless model
 
     model.destroy
     StoreResult.new(make_entity(model), true, [])
