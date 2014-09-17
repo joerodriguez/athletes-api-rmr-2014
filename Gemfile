@@ -8,6 +8,8 @@ gem 'sqlite3'
 gem 'jbuilder', '~> 2.0'
 gem 'foreigner'
 
+gem 'rack-cors', :require => 'rack/cors'
+
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
