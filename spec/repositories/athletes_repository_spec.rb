@@ -21,6 +21,28 @@ RSpec.describe AthletesRepository do
     end
   end
 
+  describe '#find_one' do
+    it 'queries the AthleteModel with the given id' do
+      athlete = AthleteModel.create!({
+        name: "Brendan Benson",
+        weight: 160,
+        avatar: "http"
+      })
+
+      athlete_entity = subject.find_one(athlete.id)
+
+      expect(athlete_entity.name).to eq "Brendan Benson"
+      expect(athlete_entity.weight).to eq 160
+      expect(athlete_entity.avatar).to eq "http"
+    end
+
+    it 'returns nil if the athlete does not exist' do
+      athlete_entity = subject.find_one(42)
+
+      expect(athlete_entity).to be_nil
+    end
+  end
+
   describe '#save' do
     before do
       entity = Entity.new({

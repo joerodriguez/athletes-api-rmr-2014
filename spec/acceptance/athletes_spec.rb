@@ -25,6 +25,28 @@ resource 'Athlete' do
     end
   end
 
+  get '/athletes/:id.json' do
+    let(:existing_athlete) do
+      AthleteModel.create!({
+        name: 'Rafal MAJKA',
+        weight: 59,
+        avatar: 'http://www.letour.fr/PHOTOS/TDF/2014/RIDERS/34.jpg'
+      })
+    end
+
+    let(:id) { existing_athlete.id }
+
+    example 'Show' do
+      do_request
+
+      expect(status).to eq 200
+
+      expect(response_json['name']).to eq 'Rafal MAJKA'
+      expect(response_json['weight']).to eq 59
+      expect(response_json['avatar']).to eq 'http://www.letour.fr/PHOTOS/TDF/2014/RIDERS/34.jpg'
+    end
+  end
+
   post '/athletes.json' do
     example 'Create with valid data' do
       do_request athlete: { weight: 63, name: 'Peter SAGAN', avatar: 'http://www.letour.fr/PHOTOS/TDF/2014/RIDERS/51.jpg' }

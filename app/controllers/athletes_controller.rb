@@ -6,6 +6,11 @@ class AthletesController < ApplicationController
     render json: @athletes
   end
 
+  def show
+    @athlete = athletes_service.one(params[:id])
+    render json: @athlete, status: (@athlete ? :ok : :not_found)
+  end
+
   def create
     result = athletes_service.create(params[:athlete])
 

@@ -7,6 +7,11 @@ class AthletesRepository
     end
   end
 
+  def find_one(id)
+    model = dao.find_by(id: id)
+    make_entity(model) if model
+  end
+
   def save(entity)
     entity_id = entity.delete(:id)
     if entity_id

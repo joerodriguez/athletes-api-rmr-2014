@@ -17,6 +17,15 @@ RSpec.describe AthletesService do
     end
   end
 
+  describe '#one' do
+    it 'asks the athletes repository for the athlete with the given id' do
+      athlete_entity = instance_double('AthleteEntity')
+      expect(athletes_repository).to receive(:find_one).with(7).and_return(athlete_entity)
+
+      expect(subject.one(7)).to equal(athlete_entity)
+    end
+  end
+
   describe '#create' do
     it 'asks the athletes repository to save an athlete' do
       result = instance_double('StoreResult')

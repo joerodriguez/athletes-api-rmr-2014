@@ -19,6 +19,26 @@ RSpec.describe AthletesController, :type => :controller do
     end
   end
 
+  describe "GET show" do
+    it 'asks the athlete service for the athlete' do
+      athlete = instance_double('AthleteEntity')
+      expect(athletes_service).to receive(:one).with('4').and_return(athlete)
+
+      get :show, id: 4, format: :json
+
+      expect(assigns(:athlete)).to eq(athlete)
+    end
+
+    it 'returns a 404 if the athlete is not found' do
+      expect(athletes_service).to receive(:one).with('4').and_return(nil)
+
+      get :show, id: 4, format: :json
+
+      expect(assigns(:athlete)).to eq(nil)
+      expect(response.status).to eq 404
+    end
+  end
+
   describe "POST create" do
     context 'with a successful store result' do
       it 'results in success' do
