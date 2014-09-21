@@ -23,7 +23,7 @@ class AthletesRepository
 
     model.attributes = entity.to_h
     saved = model.save
-    StoreResult.new(make_entity(model), saved, make_errors(model))
+    StoreResult.new(make_entity(model), saved, ErrorFactory.make(model))
   end
 
   def destroy(id)
@@ -43,19 +43,6 @@ class AthletesRepository
       weight: model.weight,
       avatar: model.avatar
     })
-  end
-
-  def make_errors(model)
-    errors = []
-
-    model.errors.each do |field, message|
-      if field == :base
-        field = nil
-      end
-      errors << { field: field.to_s, message: message }
-    end
-
-    errors
   end
 
   def dao
